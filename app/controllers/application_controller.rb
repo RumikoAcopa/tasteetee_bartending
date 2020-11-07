@@ -5,13 +5,11 @@ class ApplicationController < ActionController::Base
     protected
     
     def configure_permitted_parameters
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:phone_number])
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:date_of_birth])
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:phone_number, :date_of_birth])
     end
 
     def authenticate_admin? 
-        authenticate_user!false
-        redirect_to :login, status::forbidden
-        unless current_user.admin?
+        authenticate_user!
+        redirect_to :login, status::forbidden unless current_user.admin?
     end
 end
