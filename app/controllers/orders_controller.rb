@@ -9,9 +9,9 @@ class OrdersController < ApplicationController
         if params[:drink_id]
             @drink = Drink.find_by(id: params[:user_id])
         if @drink.nil?
-              redirect_to drinks_path, alert: "Drink not found"
+            redirect_to drinks_path, alert: "Drink not found"
         else
-              @drinks = @drink.orders
+            @drinks = @drink.orders
         end
         else
             @orders = Order.all
@@ -77,6 +77,6 @@ class OrdersController < ApplicationController
     end 
 
     def set_order 
-        @order = Order.find(params[:id])
+        @order = Order.find_by(params[:id])
     end
 end

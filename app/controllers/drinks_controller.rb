@@ -28,7 +28,7 @@ class DrinksController < ApplicationController
 
     def update 
         @drink = Drink.find(params[:id])  
-        @drink = Drink.updat(drink_params)
+        @drink = Drink.update(drink_params)
         if @drink.save
             redirect_to @drink
         else
@@ -52,7 +52,7 @@ class DrinksController < ApplicationController
     #code to find set drink
 
     def set_drink 
-        @drink = Drink.find(params[:id])
+        @drink = Drink.find_by(params[:id])
     end 
 
 
