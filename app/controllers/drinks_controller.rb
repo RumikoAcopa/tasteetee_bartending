@@ -42,7 +42,7 @@ class DrinksController < ApplicationController
         flash[:notice] = "Drink has been deleted!"
         redirect_to drinks_path
     end 
-
+end
     private
 
     def drink_params 
@@ -53,7 +53,5 @@ class DrinksController < ApplicationController
 
     def set_drink 
         @drink = Drink.find_by(params[:id])
-    end 
+    end
 
-
-end
