@@ -5,7 +5,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates  :email, :date_of_birth, presence: true, uniqueness: {scope: :user_id}
+  validates  :email, :date_of_birth, presence: true
+  #, uniqueness: {scope: :user_id}
   
 
 end
